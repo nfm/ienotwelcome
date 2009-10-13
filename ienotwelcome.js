@@ -7,14 +7,16 @@ function getARealBrowser() {
 	var bottom = "0";
 	var right = "0";
 	var width = "auto";
-	var padding = "0 1em";
-	// Message is inserted using innerHTML, so you can specify HTML here for links, images etc
-	var message = "Web page broken? <a href='http://getfirefox.com'>Get a real web browser</a>";
+	var padding = "0.5em 1em";
+	var border = "1px solid #FF4200";
+
+	// Message to display (inserted using innerHTML, so you can specify HTML here for links, images etc)
+	var message = "Web page broken? <a href='http://getfirefox.com'>Get a real web browser!</a>";
 	var id = 'ieNotWelcome';
 
 	var div = document.createElement('div');
 	div.id = id;
-	div.setAttribute('style', "position: " + position + "; bottom: " + bottom + "; right: " + right + "; width: " + width + "; padding: " + padding + "; background-color: " + backgroundColor + "; color: " + color + ";");
+	div.setAttribute('style', "position: " + position + "; bottom: " + bottom + "; right: " + right + "; width: " + width + "; padding: " + padding + "; background-color: " + backgroundColor + "; color: " + color + "; border: " + border + ";");
 	// Sorry DOM, it's for a good reason
 	div.innerHTML = message;
 
