@@ -1,6 +1,6 @@
-// Politely tell the user to get a modern browser
+// Politely tell the user to get a standards compliant browser
 function getARealBrowser() {
-	// Customize notification here
+	// Customize notification appearance here
 	var backgroundColor = "#FF7200";
 	var color = "#333333";
 	var position = "fixed";
@@ -9,10 +9,10 @@ function getARealBrowser() {
 	var width = "auto";
 	var padding = "0.5em 1em";
 	var border = "1px solid #FF4200";
+	var id = 'ieNotWelcome';
 
 	// Message to display (inserted using innerHTML, so you can specify HTML here for links, images etc)
 	var message = "Web page broken? <a href='http://getfirefox.com'>Get a real web browser!</a>";
-	var id = 'ieNotWelcome';
 
 	var div = document.createElement('div');
 	div.id = id;
@@ -20,7 +20,7 @@ function getARealBrowser() {
 	// Sorry DOM, it's for a good reason
 	div.innerHTML = message;
 
-	// Add the div to the page
+	// Add the notification to the page
 	document.body.appendChild(div);
 }
 
@@ -33,30 +33,31 @@ function browserSucks() {
 	var minimumIEVersion = 8;
 
 	var appVer = navigator.appVersion.toLowerCase();
-	var is_ie, is_minor, is_major;
-	var is_ie6, is_ie6up, is_ie7, is_ie7up;
+	var isIE, IEVersion;
 
+	// Determine if the user's browser is IE
 	if (appVer.indexOf('msie') != -1) {
-		is_ie = true;	
+		isIE = true;	
 	};
 
 	// If the user's browser is IE
-	if (is_ie) {
+	if (isIE) {
 
-		// If allowIE is false, reject their browser
+		// If allowIE is false, the user's browser sucks
 		if (allowIE == false) {
 			return true;
 		}
 
-		// Determine IE's version numbers
-		is_minor = parseFloat(appVer.substring(is_ie + 5, appVer.indexOf(';', is_ie)));
-		is_major = parseInt(is_minor);
+		// Determine IE's version number
+		IEVersion = parseInt(parseFloat(appVer.substring(isIE + 5, appVer.indexOf(';', isIE))));
 
-		if (is_major < minimumIEVersion) {
+		// If IE's version is less than the minimum allowed version, the user's browser sucks
+		if (IEVersion  < minimumIEVersion) {
 			return true;
 		}
 	}
 
+	// Otherwise, the user's browser doesn't suck
 	return false;
 }
 
