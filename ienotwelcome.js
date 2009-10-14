@@ -33,7 +33,7 @@ function browserSucks() {
 	var minimumIEVersion = 8;
 
 	var appVer = navigator.appVersion.toLowerCase();
-	var isIE, IEVersion;
+	var isIE, IEVersion, versionPos;
 
 	// Determine if the user's browser is IE
 	if (appVer.indexOf('msie') != -1) {
@@ -49,7 +49,8 @@ function browserSucks() {
 		}
 
 		// Determine IE's version number
-		IEVersion = parseInt(parseFloat(appVer.substring(isIE + 5, appVer.indexOf(';', isIE))));
+		versionPos = appVer.indexOf('msie');
+		IEVersion = parseInt(parseFloat(appVer.substring(versionPos + 5, appVer.indexOf(';', versionPos)));
 
 		// If IE's version is less than the minimum allowed version, the user's browser sucks
 		if (IEVersion  < minimumIEVersion) {
