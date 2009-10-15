@@ -1,18 +1,18 @@
 // Politely tell the user to get a standards compliant browser
 function getARealBrowser() {
 	// Customize notification appearance here
-	var backgroundColor = "#FF7200";
+	var backgroundColor = "#63849F";
 	var color = "#333333";
 	var position = "fixed";
 	var bottom = "0";
 	var right = "0";
 	var width = "auto";
 	var padding = "0.5em 1em";
-	var border = "1px solid #FF4200";
+	var border = "1px solid #3B699F";
 	var id = 'ieNotWelcome';
 
 	// Message to display (inserted using innerHTML, so you can specify HTML here for links, images etc)
-	var message = "Web page broken? <a href='http://getfirefox.com'>Get a real web browser!</a>";
+	var message = "Web page broken? <a style='color: white;' href='http://getfirefox.com'>Get a real web browser!</a>";
 
 	var div = document.createElement('div');
 	div.id = id;
@@ -50,7 +50,7 @@ function browserSucks() {
 
 		// Determine IE's version number
 		versionPos = appVer.indexOf('msie');
-		IEVersion = parseInt(parseFloat(appVer.substring(versionPos + 5, appVer.indexOf(';', versionPos)));
+		IEVersion = parseInt(parseFloat(appVer.substring(versionPos + 5, appVer.indexOf(';', versionPos))));
 
 		// If IE's version is less than the minimum allowed version, the user's browser sucks
 		if (IEVersion  < minimumIEVersion) {
