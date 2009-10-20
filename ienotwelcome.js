@@ -48,10 +48,10 @@ function getARealBrowser() {
 
 // Check whether the user's browser sucks
 function browserSucks() {
-	// Should IE be allowed at all?
-	var allowIE = true;
+	// Should all versions of IE be rejected?
+	var allVersionsSuck = false;
 
-	// If allowIE is true, what minimum version of IE doesn't suck?
+	// If allVersionsSuck is false, what minimum version of IE doesn't suck?
 	var minimumIEVersion = 8;
 
 	var appVer = navigator.appVersion.toLowerCase();
@@ -65,8 +65,8 @@ function browserSucks() {
 	// If the user's browser is IE
 	if (isIE) {
 
-		// If allowIE is false, the user's browser sucks
-		if (allowIE == false) {
+		// If allVersionsSuck is true, the user's browser sucks
+		if (allVersionsSuck == true) {
 			return true;
 		}
 
