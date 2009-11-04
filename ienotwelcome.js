@@ -38,8 +38,15 @@ function getARealBrowser() {
 
 	var div = document.createElement('div');
 	div.id = id;
-	div.setAttribute('style', "position: " + position + "; bottom: " + bottom + "; right: " + right + "; width: " + width + "; padding: " + padding + "; background-color: " + backgroundColor + "; color: " + color + "; border: " + border + ";");
-	// Sorry DOM, it's for a good reason
+	// If this is IE6/7
+	if (div.style.setAttribute) {
+		div.style.setAttribute('cssText', "position: " + position + "; bottom: " + bottom + "; right: " + right + "; width: " + width + "; padding: " + padding + "; background-color: " + backgroundColor + "; color: " + color + "; border: " + border + ";");
+	// If this browser uses the correct method
+	} else {
+		div.setAttribute('style', "position: " + position + "; bottom: " + bottom + "; right: " + right + "; width: " + width + "; padding: " + padding + "; background-color: " + backgroundColor + "; color: " + color + "; border: " + border + ";");
+	}
+
+	// Set the div's content to the variable 'message'
 	div.innerHTML = message;
 
 	// Add the notification to the page
